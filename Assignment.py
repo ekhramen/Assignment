@@ -1,6 +1,3 @@
-
-
-
 # -*- coding: utf-8 -*-
 """
 CO2 avoided emissions analysis by renewable energy source
@@ -18,9 +15,7 @@ from pathlib import Path
 # -----------------------------
 # Configuration
 # -----------------------------
-#file_path = Path(r"C:/Vermeden_verbruik_fossiele_energie_en_CO_01042026_221330.csv")
-
-file_path = r'C:\Users\ekhramenkova\Documents\ekhramenkova\Personal\Job_hunt\J&J\Vermeden_verbruik_fossiele_energie_en_CO_01042026_221330.csv'
+file_path = Path(r"C:/Vermeden_verbruik_fossiele_energie_en_CO_01042026_221330.csv")
 
 Bron_selected = [
     "Windenergie op land",
@@ -89,7 +84,8 @@ def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
 # -----------------------------
 def plot_stacked_bar(df: pd.DataFrame) -> None:
 
-
+    sns.set_theme(style="whitegrid")
+    
     df_pivot = (
         df.pivot_table(
             index="Year",
@@ -100,17 +96,22 @@ def plot_stacked_bar(df: pd.DataFrame) -> None:
         .fillna(0)
     )
 
-    ax = df_pivot.plot(
+    # Create figure with higher DPI
+    fig, ax = plt.subplots(figsize=(10, 5), dpi=150)
+
+    df_pivot.plot(
         kind="bar",
         stacked=True,
-        figsize=(10, 5),
-        colormap="rainbow", alpha=0.7
+        ax=ax,
+        colormap="rainbow",
+        alpha=0.7
     )
 
     ax.set_xlabel("Year")
     ax.set_ylabel("Avoided CO$_2$ emissions (kton)")
     ax.set_title("CO$_2$ Emissions Avoided by Renewable Energy Source")
-    # Rotate x-axis labels by 30 degrees
+    
+    # Rotate x-axis labels by 60 degrees
     plt.xticks(rotation=60)
     
     ax.legend(
@@ -121,7 +122,6 @@ def plot_stacked_bar(df: pd.DataFrame) -> None:
 
     plt.tight_layout()
     plt.show()
-
 
 # -----------------------------
 # Main
