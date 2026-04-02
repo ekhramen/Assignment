@@ -2,6 +2,7 @@
 
  Assignment for J&J (Assignment.py)
 
+This scipt aims to analyze the amount of carbon dioxide emission reduction due to the increase in the usage of the renewable energy technologies. The script cleans, prepares the data from the csv file and then preselects the desirable renewable energy source for further investigation. Ultimately the scipts creates the graph, which shows the total amount of the carbon dioxide avoided as a result of the increase in renewable enregy production.
 This script is executed if the csv file is provided.
 
 ## Installation
@@ -20,5 +21,4 @@ Provide the file_path to the location of the file containing the data. You can u
         ```
         https://opendata.cbs.nl/#/CBS/nl/dataset/84918NED/table?ts=1775069378743
         ```
-The output of this script is a single bar plot showing the total amount of avoided carbon dioxide kton due to the implemented renewable technologies. The graph depicts the contribution of each renewable energy source to the total carbon dioxide reduction effect in years 2010 - 2024.
-
+The output of this script is a single bar plot showing the total amount of avoided carbon dioxide kton due to the implemented renewable energy technologies. The graph depicts the contribution of each renewable energy source to the total carbon dioxide reduction effect in years 2010 - 2024.
